@@ -1,0 +1,12 @@
+[run]
+source = bank_client, bank_server
+
+[report]
+omit =
+    */tests/*
+    */venv/*
+    */site-packages/*
+show_missing = True
+
+[html]
+directory = htmlcov
