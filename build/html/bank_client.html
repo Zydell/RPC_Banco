@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html lang="es" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>bank_client module &#8212; documentación de VyV RPC_Banco - 0.1</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=12dfc556" />
+    <script src="_static/documentation_options.js?v=9c9b61ad"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/translations.js?v=efdbd0b9"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-bank_client">
+<span id="bank-client-module"></span><h1>bank_client module<a class="headerlink" href="#module-bank_client" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="bank_client.BankClient">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bank_client.</span></span><span class="sig-name descname"><span class="pre">BankClient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">server_url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bank_client.BankClient" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Clase que representa un cliente del banco.</p>
+<dl class="simple">
+<dt>Atributos:</dt><dd><p>proxy (ServerProxy): Proxy para comunicarse con el servidor RPC.
+current_account (str): La cuenta actual autenticada.
+notification_thread (threading.Thread): Hilo para recibir notificaciones.
+stop_notification_thread (bool): Bandera para detener el hilo de notificaciones.
+lock (threading.Lock): Lock para sincronizar las solicitudes RPC.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="bank_client.BankClient.authenticate">
+<span class="sig-name descname"><span class="pre">authenticate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">account_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bank_client.BankClient.authenticate" title="Link to this definition">¶</a></dt>
+<dd><p>Autentica a un usuario.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>account_id</strong> (<em>str</em>) – El ID de la cuenta.</p></li>
+<li><p><strong>password</strong> (<em>str</em>) – La contraseña de la cuenta.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>True si la autenticación es exitosa, False en caso contrario.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bank_client.BankClient.create_account">
+<span class="sig-name descname"><span class="pre">create_account</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">account_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bank_client.BankClient.create_account" title="Link to this definition">¶</a></dt>
+<dd><p>Crea una nueva cuenta en el servidor bancario.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>account_id</strong> (<em>str</em>) – El ID de la cuenta.</p></li>
+<li><p><strong>password</strong> (<em>str</em>) – La contraseña de la cuenta.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mensaje de éxito o error.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bank_client.BankClient.deposit">
+<span class="sig-name descname"><span class="pre">deposit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amount</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bank_client.BankClient.deposit" title="Link to this definition">¶</a></dt>
+<dd><p>Realiza un depósito en la cuenta actual.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>amount</strong> (<em>float</em>) – La cantidad a depositar.</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mensaje de éxito o error.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bank_client.BankClient.get_balance">
+<span class="sig-name descname"><span class="pre">get_balance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bank_client.BankClient.get_balance" title="Link to this definition">¶</a></dt>
+<dd><p>Obtiene el saldo de la cuenta actual.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>El saldo de la cuenta.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bank_client.BankClient.get_notifications">
+<span class="sig-name descname"><span class="pre">get_notifications</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bank_client.BankClient.get_notifications" title="Link to this definition">¶</a></dt>
+<dd><p>Obtiene las notificaciones de la cuenta actual.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Lista de notificaciones.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bank_client.BankClient.get_transaction_history">
+<span class="sig-name descname"><span class="pre">get_transaction_history</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bank_client.BankClient.get_transaction_history" title="Link to this definition">¶</a></dt>
+<dd><p>Obtiene el historial de transacciones de la cuenta actual.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Lista de transacciones.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bank_client.BankClient.listen_for_notifications">
+<span class="sig-name descname"><span class="pre">listen_for_notifications</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bank_client.BankClient.listen_for_notifications" title="Link to this definition">¶</a></dt>
+<dd><p>Escucha y muestra las notificaciones de la cuenta actual.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bank_client.BankClient.login">
+<span class="sig-name descname"><span class="pre">login</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">account_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">notifications_enabled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bank_client.BankClient.login" title="Link to this definition">¶</a></dt>
+<dd><p>Autentica a un usuario y, opcionalmente, inicia el hilo de notificaciones.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>account_id</strong> (<em>str</em>) – El ID de la cuenta.</p></li>
+<li><p><strong>password</strong> (<em>str</em>) – La contraseña de la cuenta.</p></li>
+<li><p><strong>notifications_enabled</strong> (<em>bool</em>) – Si se deben habilitar las notificaciones.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>True si la autenticación es exitosa, False en caso contrario.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bank_client.BankClient.logout">
+<span class="sig-name descname"><span class="pre">logout</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bank_client.BankClient.logout" title="Link to this definition">¶</a></dt>
+<dd><p>Cierra la sesión del usuario actual y detiene el hilo de notificaciones.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bank_client.BankClient.stop_notifications">
+<span class="sig-name descname"><span class="pre">stop_notifications</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bank_client.BankClient.stop_notifications" title="Link to this definition">¶</a></dt>
+<dd><p>Detiene el hilo de notificaciones.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bank_client.BankClient.transfer">
+<span class="sig-name descname"><span class="pre">transfer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to_account</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bank_client.BankClient.transfer" title="Link to this definition">¶</a></dt>
+<dd><p>Realiza una transferencia desde la cuenta actual a otra cuenta.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>to_account</strong> (<em>str</em>) – El ID de la cuenta de destino.</p></li>
+<li><p><strong>amount</strong> (<em>float</em>) – La cantidad a transferir.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mensaje de éxito o error.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bank_client.BankClient.withdraw">
+<span class="sig-name descname"><span class="pre">withdraw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amount</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bank_client.BankClient.withdraw" title="Link to this definition">¶</a></dt>
+<dd><p>Realiza un retiro de la cuenta actual.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>amount</strong> (<em>float</em>) – La cantidad a retirar.</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mensaje de éxito o error.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bank_client.main_menu">
+<span class="sig-prename descclassname"><span class="pre">bank_client.</span></span><span class="sig-name descname"><span class="pre">main_menu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_func=&lt;built-in</span> <span class="pre">function</span> <span class="pre">input&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bank_client.main_menu" title="Link to this definition">¶</a></dt>
+<dd><p>Muestra el menú principal para interactuar con el cliente bancario.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>client</strong> (<a class="reference internal" href="#bank_client.BankClient" title="bank_client.BankClient"><em>BankClient</em></a>) – El cliente bancario.</p></li>
+<li><p><strong>input_func</strong> (<em>function</em>) – Función para recibir entradas del usuario.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bank_client.user_menu">
+<span class="sig-prename descclassname"><span class="pre">bank_client.</span></span><span class="sig-name descname"><span class="pre">user_menu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_func=&lt;built-in</span> <span class="pre">function</span> <span class="pre">input&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bank_client.user_menu" title="Link to this definition">¶</a></dt>
+<dd><p>Muestra el menú de usuario para interactuar con la cuenta bancaria.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>client</strong> (<a class="reference internal" href="#bank_client.BankClient" title="bank_client.BankClient"><em>BankClient</em></a>) – El cliente bancario.</p></li>
+<li><p><strong>input_func</strong> (<em>function</em>) – Función para recibir entradas del usuario.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">VyV RPC_Banco</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navegación</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Banco_RPC</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Búsqueda rápida</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Ir a" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, Cristhian Totoy - Anderson Allica - Bernarda Morales.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.3.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="_sources/bank_client.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

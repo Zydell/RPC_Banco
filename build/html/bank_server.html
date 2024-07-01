@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html lang="es" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>bank_server module &#8212; documentación de VyV RPC_Banco - 0.1</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=12dfc556" />
+    <script src="_static/documentation_options.js?v=9c9b61ad"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/translations.js?v=efdbd0b9"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-bank_server">
+<span id="bank-server-module"></span><h1>bank_server module<a class="headerlink" href="#module-bank_server" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="bank_server.BankServer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bank_server.</span></span><span class="sig-name descname"><span class="pre">BankServer</span></span><a class="headerlink" href="#bank_server.BankServer" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Clase que representa un servidor bancario.</p>
+<dl class="simple">
+<dt>Atributos:</dt><dd><p>accounts (dict): Diccionario de cuentas con sus saldos.
+credentials (dict): Diccionario de credenciales de las cuentas.
+transaction_history (dict): Historial de transacciones por cuenta.
+notifications (dict): Notificaciones en cola por cuenta.
+lock (threading.Lock): Lock para control de acceso concurrente.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="bank_server.BankServer.authenticate">
+<span class="sig-name descname"><span class="pre">authenticate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">account_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bank_server.BankServer.authenticate" title="Link to this definition">¶</a></dt>
+<dd><p>Autentica a un usuario.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>account_id</strong> (<em>str</em>) – El ID de la cuenta.</p></li>
+<li><p><strong>password</strong> (<em>str</em>) – La contraseña de la cuenta.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>True si la autenticación es exitosa, False en caso contrario.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bank_server.BankServer.create_account">
+<span class="sig-name descname"><span class="pre">create_account</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">account_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bank_server.BankServer.create_account" title="Link to this definition">¶</a></dt>
+<dd><p>Crea una nueva cuenta en el servidor bancario.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>account_id</strong> (<em>str</em>) – El ID de la cuenta.</p></li>
+<li><p><strong>password</strong> (<em>str</em>) – La contraseña de la cuenta.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mensaje de éxito o error.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bank_server.BankServer.deposit">
+<span class="sig-name descname"><span class="pre">deposit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">account_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bank_server.BankServer.deposit" title="Link to this definition">¶</a></dt>
+<dd><p>Realiza un depósito en una cuenta.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>account_id</strong> (<em>str</em>) – El ID de la cuenta.</p></li>
+<li><p><strong>amount</strong> (<em>float</em>) – La cantidad a depositar.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mensaje de éxito o error.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bank_server.BankServer.get_balance">
+<span class="sig-name descname"><span class="pre">get_balance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">account_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bank_server.BankServer.get_balance" title="Link to this definition">¶</a></dt>
+<dd><p>Obtiene el saldo de una cuenta.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>account_id</strong> (<em>str</em>) – El ID de la cuenta.</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>El saldo de la cuenta o un mensaje de error.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bank_server.BankServer.get_notifications">
+<span class="sig-name descname"><span class="pre">get_notifications</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">account_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bank_server.BankServer.get_notifications" title="Link to this definition">¶</a></dt>
+<dd><p>Obtiene las notificaciones de una cuenta.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>account_id</strong> (<em>str</em>) – El ID de la cuenta.</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Lista de notificaciones.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bank_server.BankServer.get_transaction_history">
+<span class="sig-name descname"><span class="pre">get_transaction_history</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">account_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bank_server.BankServer.get_transaction_history" title="Link to this definition">¶</a></dt>
+<dd><p>Obtiene el historial de transacciones de una cuenta.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>account_id</strong> (<em>str</em>) – El ID de la cuenta.</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Lista de transacciones o un mensaje de error.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bank_server.BankServer.hash_password">
+<span class="sig-name descname"><span class="pre">hash_password</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">password</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bank_server.BankServer.hash_password" title="Link to this definition">¶</a></dt>
+<dd><p>Genera el hash de una contraseña.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>password</strong> (<em>str</em>) – La contraseña a hashear.</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>El hash de la contraseña.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bank_server.BankServer.transfer">
+<span class="sig-name descname"><span class="pre">transfer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">from_account</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_account</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bank_server.BankServer.transfer" title="Link to this definition">¶</a></dt>
+<dd><p>Realiza una transferencia entre cuentas.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>from_account</strong> (<em>str</em>) – El ID de la cuenta de origen.</p></li>
+<li><p><strong>to_account</strong> (<em>str</em>) – El ID de la cuenta de destino.</p></li>
+<li><p><strong>amount</strong> (<em>float</em>) – La cantidad a transferir.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mensaje de éxito o error.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bank_server.BankServer.withdraw">
+<span class="sig-name descname"><span class="pre">withdraw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">account_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bank_server.BankServer.withdraw" title="Link to this definition">¶</a></dt>
+<dd><p>Realiza un retiro de una cuenta.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>account_id</strong> (<em>str</em>) – El ID de la cuenta.</p></li>
+<li><p><strong>amount</strong> (<em>float</em>) – La cantidad a retirar.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mensaje de éxito o error.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="bank_server.RequestHandler">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bank_server.</span></span><span class="sig-name descname"><span class="pre">RequestHandler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_address</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bank_server.RequestHandler" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleXMLRPCRequestHandler</span></code></p>
+<p>Clase para manejar solicitudes RPC.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bank_server.RequestHandler.rpc_paths">
+<span class="sig-name descname"><span class="pre">rpc_paths</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('/RPC2',)</span></em><a class="headerlink" href="#bank_server.RequestHandler.rpc_paths" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bank_server.run_server">
+<span class="sig-prename descclassname"><span class="pre">bank_server.</span></span><span class="sig-name descname"><span class="pre">run_server</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bank_server.run_server" title="Link to this definition">¶</a></dt>
+<dd><p>Inicia el servidor bancario.</p>
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">VyV RPC_Banco</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navegación</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Banco_RPC</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Búsqueda rápida</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Ir a" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, Cristhian Totoy - Anderson Allica - Bernarda Morales.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.3.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="_sources/bank_server.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
