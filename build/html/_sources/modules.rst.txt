@@ -6,3 +6,4 @@ RPC_Banco
 
    bank_client
    bank_server
+   doc_pruebas

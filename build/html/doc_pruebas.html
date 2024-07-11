@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html lang="es" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>bank_Doc pruebas module &#8212; documentación de VyV RPC_Banco - 0.1</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=12dfc556" />
+    <script src="_static/documentation_options.js?v=9c9b61ad"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/translations.js?v=efdbd0b9"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="prev" title="bank_server module" href="bank_server.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-doc_pruebas">
+<span id="bank-doc-pruebas-module"></span><h1>bank_Doc pruebas module<a class="headerlink" href="#module-doc_pruebas" title="Link to this heading">¶</a></h1>
+<p>Módulo de pruebas de sistema para la aplicación bancaria.</p>
+<p>Este módulo documenta las pruebas de sistema para la aplicación bancaria,</p>
+<p>detallando cada paso que debe seguir el usuario para llevar a cabo las pruebas.</p>
+<p>Pruebas documentadas:</p>
+<ol class="arabic simple">
+<li><p>Creación de cuenta exitosa</p></li>
+<li><p>Prueba de autenticación exitosa</p></li>
+<li><p>Prueba de consulta de saldo exitosa</p></li>
+<li><p>Prueba de depósito exitoso</p></li>
+<li><p>Prueba de retiro exitoso</p></li>
+<li><p>Prueba de transferencia exitosa</p></li>
+<li><p>Prueba de estado de cuenta</p></li>
+<li><p>Prueba de cierre de sesión exitoso</p></li>
+<li><p>Logueo con credenciales no registradas</p></li>
+<li><p>Intento de creación de una cuenta ya existente</p></li>
+<li><p>Retiro de una cuenta sin fondos</p></li>
+<li><p>Transferencia a una cuenta no existente</p></li>
+<li><p>Ingreso de valores negativos en depósitos</p></li>
+</ol>
+<dl class="py function">
+<dt class="sig sig-object py" id="doc_pruebas.test_autenticacion_exitosa">
+<span class="sig-prename descclassname"><span class="pre">doc_pruebas.</span></span><span class="sig-name descname"><span class="pre">test_autenticacion_exitosa</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#doc_pruebas.test_autenticacion_exitosa" title="Link to this definition">¶</a></dt>
+<dd><p>Prueba 2: Autenticación exitosa</p>
+<p>Pasos:</p>
+<ol class="arabic simple">
+<li><p>Seleccionar la opción «1. Ingresar» del menú principal.</p></li>
+<li><p>Ingresar «test_user_9120» como ID de cuenta.</p></li>
+<li><p>Ingresar «test_password» como contraseña.</p></li>
+<li><p>Confirmar el inicio de sesión exitoso con el mensaje «Ingreso exitoso.»</p></li>
+</ol>
+<p>Resultado esperado:</p>
+<p>Ingreso exitoso.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="doc_pruebas.test_cierre_sesion_exitoso">
+<span class="sig-prename descclassname"><span class="pre">doc_pruebas.</span></span><span class="sig-name descname"><span class="pre">test_cierre_sesion_exitoso</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#doc_pruebas.test_cierre_sesion_exitoso" title="Link to this definition">¶</a></dt>
+<dd><p>Prueba 8: Cierre de sesión exitoso</p>
+<p>Pasos:</p>
+<ol class="arabic simple">
+<li><p>Seleccionar la opción «6. Cerrar sesión» del menú de usuario.</p></li>
+<li><p>Confirmar el cierre de sesión exitoso con el mensaje «Sesión cerrada.»</p></li>
+</ol>
+<p>Resultado esperado:</p>
+<p>Sesión cerrada.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="doc_pruebas.test_consulta_saldo_exitosa">
+<span class="sig-prename descclassname"><span class="pre">doc_pruebas.</span></span><span class="sig-name descname"><span class="pre">test_consulta_saldo_exitosa</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#doc_pruebas.test_consulta_saldo_exitosa" title="Link to this definition">¶</a></dt>
+<dd><p>Prueba 3: Consulta de saldo exitosa</p>
+<p>Pasos:</p>
+<ol class="arabic simple">
+<li><p>Seleccionar la opción «1. Consultar saldo» del menú de usuario.</p></li>
+<li><p>Verificar que el saldo de la cuenta sea mostrado correctamente.</p></li>
+</ol>
+<p>Resultado esperado:</p>
+<p>Saldo: 0</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="doc_pruebas.test_creacion_cuenta_existente">
+<span class="sig-prename descclassname"><span class="pre">doc_pruebas.</span></span><span class="sig-name descname"><span class="pre">test_creacion_cuenta_existente</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#doc_pruebas.test_creacion_cuenta_existente" title="Link to this definition">¶</a></dt>
+<dd><p>Prueba 10: Intento de creación de una cuenta ya existente</p>
+<p>Pasos:</p>
+<ol class="arabic simple">
+<li><p>Seleccionar la opción «2. Crear cuenta» del menú principal.</p></li>
+<li><p>Ingresar «test_user_9120» como ID de cuenta.</p></li>
+<li><p>Ingresar «test_password» como contraseña.</p></li>
+<li><p>Confirmar que la creación de la cuenta falla con el mensaje «La cuenta ya existe.»</p></li>
+</ol>
+<p>Resultado esperado:</p>
+<p>La cuenta ya existe.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="doc_pruebas.test_creacion_cuenta_exitosa">
+<span class="sig-prename descclassname"><span class="pre">doc_pruebas.</span></span><span class="sig-name descname"><span class="pre">test_creacion_cuenta_exitosa</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#doc_pruebas.test_creacion_cuenta_exitosa" title="Link to this definition">¶</a></dt>
+<dd><p>Prueba 1: Creación de cuenta exitosa</p>
+<p>Pasos:</p>
+<ol class="arabic simple">
+<li><p>Seleccionar la opción «2. Crear cuenta» del menú principal.</p></li>
+<li><p>Ingresar «test_user_9120» como ID de cuenta.</p></li>
+<li><p>Ingresar «test_password» como contraseña.</p></li>
+<li><p>Confirmar la creación exitosa de la cuenta con el mensaje «Cuenta creada exitosamente.»</p></li>
+</ol>
+<p>Resultado esperado:</p>
+<p>Cuenta creada exitosamente.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="doc_pruebas.test_deposito_exitoso">
+<span class="sig-prename descclassname"><span class="pre">doc_pruebas.</span></span><span class="sig-name descname"><span class="pre">test_deposito_exitoso</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#doc_pruebas.test_deposito_exitoso" title="Link to this definition">¶</a></dt>
+<dd><p>Prueba 4: Depósito exitoso</p>
+<p>Pasos:</p>
+<ol class="arabic simple">
+<li><p>Seleccionar la opción «2. Depositar» del menú de usuario.</p></li>
+<li><p>Ingresar «100.0» como cantidad a depositar.</p></li>
+<li><p>Confirmar el depósito exitoso con el mensaje «Depósito de 100.0 en la cuenta test_user_9120. Nuevo saldo es 100.0.»</p></li>
+</ol>
+<p>Resultado esperado:</p>
+<p>Depósito de 100.0 en la cuenta test_user_9120. Nuevo saldo es 100.0.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="doc_pruebas.test_deposito_negativo">
+<span class="sig-prename descclassname"><span class="pre">doc_pruebas.</span></span><span class="sig-name descname"><span class="pre">test_deposito_negativo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#doc_pruebas.test_deposito_negativo" title="Link to this definition">¶</a></dt>
+<dd><p>Prueba 13: Ingreso de valores negativos en depósitos</p>
+<p>Pasos:</p>
+<ol class="arabic simple">
+<li><p>Seleccionar la opción «2. Depositar» del menú de usuario.</p></li>
+<li><p>Ingresar «-100.0» como cantidad a depositar.</p></li>
+<li><p>Confirmar que el depósito falla con el mensaje «La cantidad a depositar debe ser positiva.»</p></li>
+</ol>
+<p>Resultado esperado:</p>
+<p>La cantidad a depositar debe ser positiva.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="doc_pruebas.test_estado_cuenta">
+<span class="sig-prename descclassname"><span class="pre">doc_pruebas.</span></span><span class="sig-name descname"><span class="pre">test_estado_cuenta</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#doc_pruebas.test_estado_cuenta" title="Link to this definition">¶</a></dt>
+<dd><p>Prueba 7: Estado de cuenta</p>
+<p>Pasos:</p>
+<ol class="arabic simple">
+<li><p>Seleccionar la opción «5. Estado de cuenta» del menú de usuario.</p></li>
+<li><p>Verificar que el historial de transacciones sea mostrado correctamente.</p></li>
+</ol>
+<p>Resultado esperado:</p>
+<p>Historial de transacciones:</p>
+<p>Depósito: 100.0</p>
+<p>Retiro: 50.0</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="doc_pruebas.test_logueo_credenciales_no_registradas">
+<span class="sig-prename descclassname"><span class="pre">doc_pruebas.</span></span><span class="sig-name descname"><span class="pre">test_logueo_credenciales_no_registradas</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#doc_pruebas.test_logueo_credenciales_no_registradas" title="Link to this definition">¶</a></dt>
+<dd><p>Prueba 9: Logueo con credenciales no registradas</p>
+<p>Pasos:</p>
+<ol class="arabic simple">
+<li><p>Seleccionar la opción «1. Ingresar» del menú principal.</p></li>
+<li><p>Ingresar «invalid_user» como ID de cuenta.</p></li>
+<li><p>Ingresar «invalid_password» como contraseña.</p></li>
+<li><p>Confirmar que el inicio de sesión falla con el mensaje «ID de cuenta o contraseña incorrectos.»</p></li>
+</ol>
+<p>Resultado esperado:</p>
+<p>ID de cuenta o contraseña incorrectos.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="doc_pruebas.test_retiro_exitoso">
+<span class="sig-prename descclassname"><span class="pre">doc_pruebas.</span></span><span class="sig-name descname"><span class="pre">test_retiro_exitoso</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#doc_pruebas.test_retiro_exitoso" title="Link to this definition">¶</a></dt>
+<dd><p>Prueba 5: Retiro exitoso</p>
+<p>Pasos:
+1. Seleccionar la opción «3. Retirar» del menú de usuario.</p>
+<ol class="arabic simple" start="2">
+<li><p>Ingresar «50.0» como cantidad a retirar.</p></li>
+<li><p>Confirmar el retiro exitoso con el mensaje «Retiro de 50.0 de la cuenta test_user_9120. Nuevo saldo es 50.0.»</p></li>
+</ol>
+<p>Resultado esperado:</p>
+<p>Retiro de 50.0 de la cuenta test_user_9120. Nuevo saldo es 50.0.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="doc_pruebas.test_retiro_sin_fondos">
+<span class="sig-prename descclassname"><span class="pre">doc_pruebas.</span></span><span class="sig-name descname"><span class="pre">test_retiro_sin_fondos</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#doc_pruebas.test_retiro_sin_fondos" title="Link to this definition">¶</a></dt>
+<dd><p>Prueba 11: Retiro de una cuenta sin fondos</p>
+<p>Pasos:</p>
+<ol class="arabic simple">
+<li><p>Seleccionar la opción «3. Retirar» del menú de usuario.</p></li>
+<li><p>Ingresar «750.0» como cantidad a retirar.</p></li>
+<li><p>Confirmar que el retiro falla con el mensaje «Fondos insuficientes.»</p></li>
+</ol>
+<p>Resultado esperado:</p>
+<p>Fondos insuficientes.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="doc_pruebas.test_transferencia_cuenta_no_existente">
+<span class="sig-prename descclassname"><span class="pre">doc_pruebas.</span></span><span class="sig-name descname"><span class="pre">test_transferencia_cuenta_no_existente</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#doc_pruebas.test_transferencia_cuenta_no_existente" title="Link to this definition">¶</a></dt>
+<dd><p>Prueba 12: Transferencia a una cuenta no existente</p>
+<p>Pasos:</p>
+<ol class="arabic simple">
+<li><p>Seleccionar la opción «4. Transferir» del menú de usuario.</p></li>
+<li><p>Ingresar «non_existent_account» como cuenta de destino.</p></li>
+<li><p>Ingresar «25.0» como cantidad a transferir.</p></li>
+<li><p>Confirmar que la transferencia falla con el mensaje «Una o ambas cuentas no existen.»</p></li>
+</ol>
+<p>Resultado esperado:</p>
+<p>Una o ambas cuentas no existen.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="doc_pruebas.test_transferencia_exitosa">
+<span class="sig-prename descclassname"><span class="pre">doc_pruebas.</span></span><span class="sig-name descname"><span class="pre">test_transferencia_exitosa</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#doc_pruebas.test_transferencia_exitosa" title="Link to this definition">¶</a></dt>
+<dd><p>Prueba 6: Transferencia exitosa</p>
+<p>Pasos:</p>
+<ol class="arabic simple">
+<li><p>Seleccionar la opción «4. Transferir» del menú de usuario.</p></li>
+<li><p>Ingresar «test_user_9121» como cuenta de destino.</p></li>
+<li><p>Ingresar «25.0» como cantidad a transferir.</p></li>
+<li><p>Confirmar la transferencia exitosa con el mensaje «Transferencia de 25.0 desde la cuenta test_user_9120 a la cuenta test_user_9121. Nuevos saldos: test_user_9120: 75.0, test_user_9121: 75.0.»</p></li>
+</ol>
+<p>Resultado esperado:
+Transferencia de 25.0 desde la cuenta test_user_9120 a la cuenta test_user_9121. Nuevos saldos: test_user_9120: 75.0, test_user_9121: 75.0.</p>
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">VyV RPC_Banco</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navegación</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">RPC_Banco</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="bank_client.html">bank_client module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bank_server.html">bank_server module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">bank_Doc pruebas module</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">RPC_Banco</a><ul>
+      <li>Previous: <a href="bank_server.html" title="capítulo anterior">bank_server module</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Búsqueda rápida</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Ir a" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, Cristhian Totoy - Anderson Allica - Bernarda Morales.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.3.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="_sources/doc_pruebas.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
