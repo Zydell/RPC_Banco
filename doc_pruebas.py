@@ -287,10 +287,10 @@ def test_transferencia_cuenta_no_existente():
     9. En caso de tener notificaciones se le presentara el detalle de quién le ha realizado una transferenciay deberá ingresar el valor de la opción "4" después de la notificación.\n
     10. Se muestra un mensaje "Ingrese la cuenta destino" , se ingresa el ID del usuario no existente , debe ser un usuario que no exista al que se va a realizar la transferencia. Por ejemplo "Ingrese la cuenta de destino: non_existent_account" \n
     11. Se muestra un mensaje "Ingrese la cantidad a transferir", ingresa un valor cualquiera en este caso. Ingresar "25.0" como cantidad a transferir \n
-    12. Se confirma de que la transferencia ha fallado con el mensaje "Una o ambas cuentas no existen" \n
+    12. Se confirma de que la transferencia ha fallado con el mensaje "Cuenta de destino no existe." \n
 
     Resultado esperado:\n
-    Mensaje que indica "Una o ambas cuentas no existen".\n
+    Mensaje que indica "Cuenta de destino no existe.".\n
     """
     pass
 

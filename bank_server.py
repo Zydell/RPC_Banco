@@ -169,7 +169,7 @@ class BankServer:
             return "La cantidad a transferir debe ser positiva."
         with self.lock:
             if from_account not in self.accounts or to_account not in self.accounts:
-                return "Una o ambas cuentas no existen."
+                return "Cuenta de destino no existe."
             if self.accounts[from_account] < amount:
                 return "Fondos insuficientes."
             self.accounts[from_account] -= amount
