@@ -1,6 +1,7 @@
 import xmlrpc.client
 import threading
 import time
+import random
 
 class BankClient:
     """
@@ -27,6 +28,19 @@ class BankClient:
         self.stop_notification_thread = False
         self.lock = threading.Lock()
 
+    def delete_account(self, account_id):
+        """
+        Elimina una cuenta del servidor bancario.
+
+        Args:
+            account_id (str): El ID de la cuenta.
+
+        Returns:
+            str: Mensaje de éxito o error.
+        """
+        with self.lock:
+            return self.proxy.delete_account(account_id)
+    
     def create_account(self, account_id, password):
         """
         Crea una nueva cuenta en el servidor bancario.
@@ -231,6 +245,68 @@ def user_menu(client, input_func=input):
         else:
             print("Opción inválida. Intente de nuevo.")
 
+def automated_test(client):
+    """
+    Simula la interacción automática con el cliente bancario.
+
+    Args:
+        client (BankClient): El cliente bancario.
+    """
+    steps = [
+        ('2', "\nIniciando prueba de creación de cuenta...\n"),  # Crear cuenta
+        ('test_user_9120', None),  # Crear cuenta
+        ('test_password', None),  # Contraseña
+        ('1', "\nIniciando prueba de autenticación...\n"),  # Ingresar
+        ('test_user_9120', None),  # ID de cuenta
+        ('test_password', None),  # Contraseña
+        ('1', "\nIniciando prueba de consulta de saldo...\n"),  # Consultar saldo
+        ('2', "\nIniciando prueba de depósito...\n"),  # Depositar
+        ('100.0', None),  # Monto a depositar
+        ('1', "\nIniciando prueba de consulta de saldo después de depósito...\n"),  # Consultar saldo
+        ('3', "\nIniciando prueba de retiro...\n"),  # Retirar
+        ('50.0', None),  # Monto a retirar
+        ('1', "\nIniciando prueba de consulta de saldo después de retiro...\n"),  # Consultar saldo
+        ('5', "\nIniciando prueba de estado de cuenta...\n"),  # Estado de cuenta
+        ('6', "\nIniciando prueba de cierre de sesión...\n"),  # Cerrar Sesion
+        ('2', "\nIniciando prueba de creación de otra cuenta...\n"),  # Crear otra cuenta
+        ('test_user_9121', None),  # Crear cuenta
+        ('test_password2', None),  # Contraseña
+        ('1', "\nIniciando prueba de autenticación con otra cuenta...\n"),  # Ingresar
+        ('test_user_9121', None),  # ID de cuenta
+        ('test_password2', None),  # Contraseña
+        ('2', "\nIniciando prueba de deposito en la segunda cuenta...\n"),  # Transferir
+        ('100.0', None),  # Monto a depositar
+        ('4', "\nIniciando prueba de transferencia entre cuentas...\n"),  # Transferir
+        ('test_user_9120', None),  # Cuenta de destino
+        ('25.0', None),  # Monto a transferir
+        ('5', "\nIniciando prueba de estado de cuenta después de transferencia...\n"),  # Estado de cuenta
+        ('6', "\nIniciando prueba de cierre de sesión de la otra cuenta (cuenta 2)...\n"),  # Cerrar Sesion
+        ('1', "\nIniciando prueba de Inicio de sesion en la cuenta 1...\n"),  # Ingresar
+        ('test_user_9120', None),  # ID de cuenta
+        ('test_password', None),  # Contraseña
+        ('1', "\nIniciando prueba de consulta de saldo...\n"),  # Consultar saldo
+        ('6', "\nIniciando cierre de sesión...\n"),  # Cerrar Sesion
+        ('3', "\nPruebas completada exitosamente.\n")  # Salir        
+    ]
+
+    step_index = 0
+
+    def input_func(prompt):
+        nonlocal step_index
+        if step_index < len(steps):
+            response, message = steps[step_index]
+            if message:
+                print(message)
+                time.sleep(1)  # Simulación de la demora al mostrar el mensaje
+            step_index += 1
+            print(f"{prompt} {response}")
+            time.sleep(1)  # Simulación de la demora al ingresar los datos
+            return response
+        return ""
+
+    main_menu(client, input_func)
+
 if __name__ == "__main__":
     client = BankClient('http://localhost:8000')
-    main_menu(client)
+    automated_test(client)
+

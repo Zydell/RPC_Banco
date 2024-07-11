@@ -59,6 +59,27 @@ class BankServer:
             self.notifications[account_id] = queue.Queue()
             return "Cuenta creada exitosamente."
 
+    def delete_account(self, account_id):
+        """
+        Elimina una cuenta del servidor bancario.
+
+        Args:
+            account_id (str): El ID de la cuenta.
+
+        Returns:
+            str: Mensaje de éxito o error.
+        """
+        with self.lock:
+            if account_id in self.accounts:
+                del self.accounts[account_id]
+                del self.credentials[account_id]
+                del self.transaction_history[account_id]
+                del self.notifications[account_id]
+                return "Cuenta eliminada exitosamente."
+            else:
+                return "La cuenta no existe."
+
+    
     def authenticate(self, account_id, password):
         """
         Autentica a un usuario.
@@ -194,7 +215,9 @@ class BankServer:
 def run_server():
     """Inicia el servidor bancario."""
     server = SimpleXMLRPCServer(('localhost', 8000), requestHandler=RequestHandler, allow_none=True)
-    server.register_instance(BankServer())
+    bank_server = BankServer()
+    server.register_instance(bank_server)
+    server.register_function(bank_server.delete_account, 'delete_account')  # Registrar el método delete_account
     print("Servidor bancario corriendo en el puerto 8000...")
     server.serve_forever()
 
