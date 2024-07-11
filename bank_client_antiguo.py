@@ -207,6 +207,7 @@ def main_menu(client, input_func=input):
         else:
             print("Opción inválida. Intente de nuevo.")
 
+
 def user_menu(client, input_func=input):
     """
     Muestra el menú de usuario para interactuar con la cuenta bancaria.
@@ -244,84 +245,6 @@ def user_menu(client, input_func=input):
         else:
             print("Opción inválida. Intente de nuevo.")
 
-def automated_test(client):
-    """
-    Simula la interacción automática con el cliente bancario.
-
-    Args:
-        client (BankClient): El cliente bancario.
-    """
-    steps = [
-        ('2', "\nPrueba 1: Creación de cuenta (test_user_9120)...\n"),  # Crear cuenta
-        ('test_user_9120', None),  # Crear cuenta
-        ('test_password', None),  # Contraseña
-        ('1', "\nPrueba 2: Autenticación (test_user_9120)...\n"),  # Ingresar
-        ('test_user_9120', None),  # ID de cuenta
-        ('test_password', None),  # Contraseña
-        ('1', "\nPrueba 3: Consulta de saldo...\n"),  # Consultar saldo
-        ('2', "\nPrueba 4: Depósito (100.0)...\n"),  # Depositar
-        ('100.0', None),  # Monto a depositar
-        ('1', "\nPrueba 5: Consulta de saldo después de depósito...\n"),  # Consultar saldo
-        ('3', "\nPrueba 6: Retiro (50.0)...\n"),  # Retirar
-        ('50.0', None),  # Monto a retirar
-        ('1', "\nPrueba 7: Consulta de saldo después de retiro...\n"),  # Consultar saldo
-        ('5', "\nPrueba 8: Consulta de estado de cuenta...\n"),  # Estado de cuenta
-        ('6', "\nPrueba 9: Cierre de sesión...\n"),  # Cerrar Sesion
-        ('2', "\nPrueba 10: Creación de otra cuenta (test_user_9121)...\n"),  # Crear otra cuenta
-        ('test_user_9121', None),  # Crear cuenta
-        ('test_password2', None),  # Contraseña
-        ('1', "\nPrueba 11: Autenticación con otra cuenta (test_user_9121)...\n"),  # Ingresar
-        ('test_user_9121', None),  # ID de cuenta
-        ('test_password2', None),  # Contraseña
-        ('2', "\nPrueba 12: Depósito en la segunda cuenta (100.0)...\n"),  # Depositar en cuenta 2
-        ('100.0', None),  # Monto a depositar
-        ('4', "\nPrueba 13: Transferencia entre cuentas (25.0)...\n"),  # Transferir
-        ('test_user_9120', None),  # Cuenta de destino
-        ('25.0', None),  # Monto a transferir
-        ('5', "\nPrueba 14: Consulta de estado de cuenta después de transferencia...\n"),  # Estado de cuenta
-        ('6', "\nPrueba 15: Cierre de sesión de la otra cuenta (cuenta 2)...\n"),  # Cerrar Sesion
-        ('1', "\nPrueba 16: Inicio de sesión en la cuenta 1...\n"),  # Ingresar
-        ('test_user_9120', None),  # ID de cuenta
-        ('test_password', None),  # Contraseña
-        ('1', "\nPrueba 17: Consulta de saldo después de transferencia...\n"),  # Consultar saldo
-        ('6', "\nPrueba 18: Cierre de sesión...\n"),  # Cerrar Sesion
-        ('1', "\nPrueba 19: Inicio de sesión con credenciales incorrectas...\n"),  # Intento de login con credenciales incorrectas
-        ('invalid_user', None),  # ID de cuenta incorrecto
-        ('invalid_password', None),  # Contraseña incorrecta
-        ('2', "\nPrueba 20: Creación de cuenta ya existente...\n"),  # Crear una cuenta ya existente
-        ('test_user_9120', None),  # ID de cuenta existente
-        ('test_password', None),  # Contraseña
-        ('1', "\nPrueba 21: Retiro con fondos insuficientes...\n"),  # Ingresar
-        ('test_user_9120', None),  # ID de cuenta
-        ('test_password', None),  # Contraseña
-        ('3', "\nPrueba 22: Retiro con fondos insuficientes (750.0)...\n"),  # Retiro con fondos insuficientes
-        ('750.0', None),  # Monto a retirar mayor al saldo disponible
-        ('4', "\nPrueba 23: Transferencia a cuenta inexistente...\n"),  # Transferencia a cuenta inexistente
-        ('non_existent_account', None),  # Cuenta de destino inexistente
-        ('25.0', None),  # Monto a transferir
-        ('2', "\nPrueba 24: Depósito con monto negativo (-100.0)...\n"),  # Depositar monto negativo
-        ('-100.0', None),  # Monto negativo
-        ('6', "\nPrueba 25: Cierre de sesión final...\n"),  # Cerrar Sesion
-        ('3', "\nPruebas completadas exitosamente.\n")  # Salir
-    ]
-
-    step_index = 0
-
-    def input_func(prompt):
-        nonlocal step_index
-        if step_index < len(steps):
-            response, message = steps[step_index]
-            if message:
-                print(message)
-                time.sleep(0)  # Simulación de la demora al mostrar el mensaje
-            step_index += 1
-            print(f"{prompt} {response}")
-            time.sleep(0)  # Simulación de la demora al ingresar los datos
-            return response
-        return ""
-
-    main_menu(client, input_func)
-
 if __name__ == "__main__":
     client = BankClient('http://localhost:8000')
-    automated_test(client)
+    main_menu(client)
