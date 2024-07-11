@@ -59,26 +59,65 @@
 <dd><p>Prueba 2: Autenticación exitosa</p>
 <p>Pasos:</p>
 <ol class="arabic simple">
-<li><p>Seleccionar la opción «1. Ingresar» del menú principal.</p></li>
-<li><p>Ingresar «test_user_9120» como ID de cuenta.</p></li>
-<li><p>Ingresar «test_password» como contraseña.</p></li>
-<li><p>Confirmar el inicio de sesión exitoso con el mensaje «Ingreso exitoso.»</p></li>
+<li><p>Levantar el servidor: Se abre la terminal y se ejecuta el comando “python .bank_server.py”.</p></li>
+<li><p>Levantar el cliente: Se abre una segunda terminal y se ejecuta el comando “python .bank_client_antiguo.py”.</p></li>
+<li><p>Si aún no tiene una cuenta, debe crear una cuenta a través de los pasos para la «Creación de cuenta exitosa».</p></li>
+<li><p>En “Ingrese su opción:” se ingresa el número 1 que corresponde a la opción del menú de “Ingresar”.</p></li>
+<li><p>Se ingresa un ID existente, de una cuenta que ya haya creado previamente.</p></li>
+<li><p>Se ingresa la contraseña correspondiente a su «ID de cuenta».</p></li>
+<li><p>Se confirma el inicio de sesión exitoso con el mensaje «Ingreso exitoso».</p></li>
 </ol>
 <p>Resultado esperado:</p>
-<p>Ingreso exitoso.</p>
+<p>Mensaje que indica «Ingreso exitoso».</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="doc_pruebas.test_cierre_sesion_exitoso">
 <span class="sig-prename descclassname"><span class="pre">doc_pruebas.</span></span><span class="sig-name descname"><span class="pre">test_cierre_sesion_exitoso</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#doc_pruebas.test_cierre_sesion_exitoso" title="Link to this definition">¶</a></dt>
 <dd><p>Prueba 8: Cierre de sesión exitoso</p>
+<p>1. CASO EN EL QUE SE ENCUENTRE EN EL MENÚ PRINCIPAL:
+«   1. Ingresar</p>
+<blockquote>
+<div><ol class="arabic simple" start="2">
+<li><p>Crear cuenta</p></li>
+<li><p>Salir  «</p></li>
+</ol>
 <p>Pasos:</p>
 <ol class="arabic simple">
-<li><p>Seleccionar la opción «6. Cerrar sesión» del menú de usuario.</p></li>
-<li><p>Confirmar el cierre de sesión exitoso con el mensaje «Sesión cerrada.»</p></li>
+<li><p>Levantar el servidor: Se abre la terminal y se ejecuta el comando “python .bank_server.py”.</p></li>
+<li><p>Levantar el cliente: Se abre una segunda terminal y se ejecuta el comando “python .bank_client_antiguo.py”.</p></li>
+<li><p>En “Ingrese su opción:” se ingresa el número 3 que corresponde a la opción del menú de “Salir”.</p></li>
+<li><p>Se muestra un mensaje de «Sesión cerrada».</p></li>
+<li><p>Se acaba el proceso y ha salido del programa exitosamente.</p></li>
 </ol>
+</div></blockquote>
+<p>2. CASO EN EL QUE SE ENCUENTRE EN EL SUBMENÚ:
+«   1. Consultar saldo</p>
+<blockquote>
+<div><ol class="arabic simple" start="2">
+<li><p>Depositar</p></li>
+<li><p>Retirar</p></li>
+<li><p>Transferir</p></li>
+<li><p>Estado de cuenta</p></li>
+<li><p>Cerrar sesión «</p></li>
+</ol>
+<p>Pasos:</p>
+<ol class="arabic simple">
+<li><p>Levantar el servidor: Se abre la terminal y se ejecuta el comando “python .bank_server.py”.</p></li>
+<li><p>Levantar el cliente: Se abre una segunda terminal y se ejecuta el comando “python .bank_client_antiguo.py”.</p></li>
+<li><p>Si aún no tiene una cuenta, debe crear una cuenta a través de los pasos para la «Creación de cuenta exitosa».</p></li>
+<li><p>En “Ingrese su opción:” se ingresa el número 1 que corresponde a la opción del menú de “Ingresar”.</p></li>
+<li><p>Se ingresa un ID existente, de una cuenta que ya haya creado previamente.</p></li>
+<li><p>Se ingresa la contraseña correspondiente a su «ID de cuenta».</p></li>
+<li><p>Se confirma el inicio de sesión exitoso con el mensaje «Ingreso exitoso».</p></li>
+<li><p>Se presenta un menú de 6 opciones y un mensaje «Ingrese su opción» en cual se coloca el número 6 que corresponde a «Cerrar Sesión».</p></li>
+<li><p>En caso de tener notificaciones se le presentara el detalle de quién le ha realizado una transferenciay deberá ingresar el valor de la opción «6» después de la notificación.</p></li>
+<li><p>Se muestra un mensaje de «Sesión cerrada».</p></li>
+<li><p>Se acaba el proceso y ha salido del programa exitosamente.</p></li>
+</ol>
+</div></blockquote>
 <p>Resultado esperado:</p>
-<p>Sesión cerrada.</p>
+<p>Mensaje que indica «Sesión cerrada».</p>
 </dd></dl>
 
 <dl class="py function">
@@ -87,11 +126,19 @@
 <dd><p>Prueba 3: Consulta de saldo exitosa</p>
 <p>Pasos:</p>
 <ol class="arabic simple">
-<li><p>Seleccionar la opción «1. Consultar saldo» del menú de usuario.</p></li>
-<li><p>Verificar que el saldo de la cuenta sea mostrado correctamente.</p></li>
+<li><p>Levantar el servidor: Se abre la terminal y se ejecuta el comando “python .bank_server.py”.</p></li>
+<li><p>Levantar el cliente: Se abre una segunda terminal y se ejecuta el comando “python .bank_client_antiguo.py”.</p></li>
+<li><p>Si aún no tiene una cuenta, debe crear una cuenta a través de los pasos para la «Creación de cuenta exitosa».</p></li>
+<li><p>En “Ingrese su opción:” se ingresa el número 1 que corresponde a la opción del menú de “Ingresar”.</p></li>
+<li><p>Se ingresa un ID existente, de una cuenta que ya haya creado previamente.</p></li>
+<li><p>Se ingresa la contraseña correspondiente a su «ID de cuenta».</p></li>
+<li><p>Se confirma el inicio de sesión exitoso con el mensaje «Ingreso exitoso».</p></li>
+<li><p>Se presenta un menú de 6 opciones y un mensaje «Ingrese su opción» en cual se coloca el número 1 que corresponde a «Consultar saldo».</p></li>
+<li><p>En caso de tener notificaciones se le presentara el detalle de quién le ha realizado una transferenciay deberá ingresar el valor de la opción «1» después de la notificación.</p></li>
+<li><p>Se muestra un mensaje «Saldo:» indicando el valor que dispone en su cuenta. Ejemplo:  «Saldo:0».</p></li>
 </ol>
 <p>Resultado esperado:</p>
-<p>Saldo: 0</p>
+<p>Mensaje que indica «Saldo:0».</p>
 </dd></dl>
 
 <dl class="py function">
@@ -100,13 +147,15 @@
 <dd><p>Prueba 10: Intento de creación de una cuenta ya existente</p>
 <p>Pasos:</p>
 <ol class="arabic simple">
-<li><p>Seleccionar la opción «2. Crear cuenta» del menú principal.</p></li>
-<li><p>Ingresar «test_user_9120» como ID de cuenta.</p></li>
-<li><p>Ingresar «test_password» como contraseña.</p></li>
-<li><p>Confirmar que la creación de la cuenta falla con el mensaje «La cuenta ya existe.»</p></li>
+<li><p>Levantar el servidor: Se abre la terminal y se ejecuta el comando “python .bank_server.py”.</p></li>
+<li><p>Levantar el cliente: Se abre una segunda terminal y se ejecuta el comando “python .bank_client_antiguo.py”.</p></li>
+<li><p>En “Ingrese su opción:” se ingresa el número 2 que corresponde a la opción del menú de “Crear cuenta”.</p></li>
+<li><p>Se ingresa un ID existente test_user_9120 de la cuenta crearse.</p></li>
+<li><p>Se ingresa la contraseña para su nueva cuenta.</p></li>
+<li><p>Se confirma que la creación de la cuenta no ha sido exitoso con un mensaje de “La cuenta ya existe”.</p></li>
 </ol>
 <p>Resultado esperado:</p>
-<p>La cuenta ya existe.</p>
+<p>Mensaje que indica «La cuenta ya existe».</p>
 </dd></dl>
 
 <dl class="py function">
@@ -115,27 +164,37 @@
 <dd><p>Prueba 1: Creación de cuenta exitosa</p>
 <p>Pasos:</p>
 <ol class="arabic simple">
-<li><p>Seleccionar la opción «2. Crear cuenta» del menú principal.</p></li>
-<li><p>Ingresar «test_user_9120» como ID de cuenta.</p></li>
-<li><p>Ingresar «test_password» como contraseña.</p></li>
-<li><p>Confirmar la creación exitosa de la cuenta con el mensaje «Cuenta creada exitosamente.»</p></li>
+<li><p>Levantar el servidor: Se abre la terminal y se ejecuta el comando “python .bank_server.py”.</p></li>
+<li><p>Levantar el cliente: Se abre una segunda terminal y se ejecuta el comando “python .bank_client_antiguo.py”.</p></li>
+<li><p>En “Ingrese su opción:” se ingresa el número 2 que corresponde a la opción del menú de “Crear cuenta”.</p></li>
+<li><p>Se ingresa un ID no existente de la cuenta a crearse.</p></li>
+<li><p>Se ingresa la contraseña para su nueva cuenta.</p></li>
+<li><p>Se confirma la creación de lacuenta con un mensaje de “Cuenta creada exitosamente”.</p></li>
 </ol>
 <p>Resultado esperado:</p>
-<p>Cuenta creada exitosamente.</p>
+<p>Mensaje que indica «Cuenta creada exitosamente».</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="doc_pruebas.test_deposito_exitoso">
 <span class="sig-prename descclassname"><span class="pre">doc_pruebas.</span></span><span class="sig-name descname"><span class="pre">test_deposito_exitoso</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#doc_pruebas.test_deposito_exitoso" title="Link to this definition">¶</a></dt>
-<dd><p>Prueba 4: Depósito exitoso</p>
+<dd><p>Prueba 4: Deposito exitosa</p>
 <p>Pasos:</p>
 <ol class="arabic simple">
-<li><p>Seleccionar la opción «2. Depositar» del menú de usuario.</p></li>
-<li><p>Ingresar «100.0» como cantidad a depositar.</p></li>
-<li><p>Confirmar el depósito exitoso con el mensaje «Depósito de 100.0 en la cuenta test_user_9120. Nuevo saldo es 100.0.»</p></li>
+<li><p>Levantar el servidor: Se abre la terminal y se ejecuta el comando “python .bank_server.py”.</p></li>
+<li><p>Levantar el cliente: Se abre una segunda terminal y se ejecuta el comando “python .bank_client_antiguo.py”.</p></li>
+<li><p>Si aún no tiene una cuenta, debe crear una cuenta a través de los pasos para la «Creación de cuenta exitosa».</p></li>
+<li><p>En “Ingrese su opción:” se ingresa el número 1 que corresponde a la opción del menú de “Ingresar”.</p></li>
+<li><p>Se ingresa un ID existente, de una cuenta que ya haya creado previamente.</p></li>
+<li><p>Se ingresa la contraseña correspondiente a su «ID de cuenta».</p></li>
+<li><p>Se confirma el inicio de sesión exitoso con el mensaje «Ingreso exitoso».</p></li>
+<li><p>Se presenta un menú de 6 opciones y un mensaje «Ingrese su opción» en cual se coloca el número 2 que corresponde a «Depositar».</p></li>
+<li><p>En caso de tener notificaciones se le presentara el detalle de quién le ha realizado una transferenciay deberá ingresar el valor de la opción «2» después de la notificación.</p></li>
+<li><p>Se muestra un mensaje «Ingrese la cantidad a depositar» indicando el valor que quiere depositar a su cuenta. Por ejemplo para depositar $50 sería «Ingrese la cantidad a depositar: 50»</p></li>
+<li><p>Se muestra un mensaje «Depósito de 50.0 en la cuenta test_user_9120. Nuevo saldo es 50.0» indicando el valor que ha depositado a su cuenta y actualizando el saldo que tiene despues del depósito.</p></li>
 </ol>
 <p>Resultado esperado:</p>
-<p>Depósito de 100.0 en la cuenta test_user_9120. Nuevo saldo es 100.0.</p>
+<p>Mensaje que indica «Depósito de 50.0 en la cuenta test_user_9120. Nuevo saldo es 50.0.</p>
 </dd></dl>
 
 <dl class="py function">
@@ -144,12 +203,20 @@
 <dd><p>Prueba 13: Ingreso de valores negativos en depósitos</p>
 <p>Pasos:</p>
 <ol class="arabic simple">
-<li><p>Seleccionar la opción «2. Depositar» del menú de usuario.</p></li>
-<li><p>Ingresar «-100.0» como cantidad a depositar.</p></li>
-<li><p>Confirmar que el depósito falla con el mensaje «La cantidad a depositar debe ser positiva.»</p></li>
+<li><p>Levantar el servidor: Se abre la terminal y se ejecuta el comando “python .bank_server.py”.</p></li>
+<li><p>Levantar el cliente: Se abre una segunda terminal y se ejecuta el comando “python .bank_client_antiguo.py”.</p></li>
+<li><p>Si aún no tiene una cuenta, debe crear una cuenta a través de los pasos para la «Creación de cuenta exitosa».</p></li>
+<li><p>En “Ingrese su opción:” se ingresa el número 1 que corresponde a la opción del menú de “Ingresar”.</p></li>
+<li><p>Se ingresa un ID existente, de una cuenta que ya haya creado previamente.</p></li>
+<li><p>Se ingresa la contraseña correspondiente a su «ID de cuenta».</p></li>
+<li><p>Se confirma el inicio de sesión exitoso con el mensaje «Ingreso exitoso».</p></li>
+<li><p>Se presenta un menú de 6 opciones y un mensaje «Ingrese su opción» en cual se coloca el número 2 que corresponde a «Depositar».</p></li>
+<li><p>En caso de tener notificaciones se le presentara el detalle de quién le ha realizado una transferenciay deberá ingresar el valor de la opción «2» después de la notificación.</p></li>
+<li><p>Se muestra un mensaje «Ingrese la cantidad a depositar» indicando el valor que quiere depositar a su cuenta. Por ejemplo : «Ingrese la cantidad a depositar: -100»</p></li>
+<li><p>Se confirma de que la transferencia ha fallado con el mensaje «La cantidad a depositar debe ser positiva» .</p></li>
 </ol>
 <p>Resultado esperado:</p>
-<p>La cantidad a depositar debe ser positiva.</p>
+<p>Mensaje que indica «La cantidad a depositar debe ser positiva».</p>
 </dd></dl>
 
 <dl class="py function">
@@ -158,13 +225,32 @@
 <dd><p>Prueba 7: Estado de cuenta</p>
 <p>Pasos:</p>
 <ol class="arabic simple">
-<li><p>Seleccionar la opción «5. Estado de cuenta» del menú de usuario.</p></li>
-<li><p>Verificar que el historial de transacciones sea mostrado correctamente.</p></li>
+<li><p>Levantar el servidor: Se abre la terminal y se ejecuta el comando “python .bank_server.py”.</p></li>
+<li><p>Levantar el cliente: Se abre una segunda terminal y se ejecuta el comando “python .bank_client_antiguo.py”.</p></li>
+<li><p>Si aún no tiene una cuenta, debe crear una cuenta a través de los pasos para la «Creación de cuenta exitosa».</p></li>
+<li><p>En “Ingrese su opción:” se ingresa el número 1 que corresponde a la opción del menú de “Ingresar”.</p></li>
+<li><p>Se ingresa un ID existente, de una cuenta que ya haya creado previamente.</p></li>
+<li><p>Se ingresa la contraseña correspondiente a su «ID de cuenta».</p></li>
+<li><p>Se confirma el inicio de sesión exitoso con el mensaje «Ingreso exitoso».</p></li>
+<li><p>Se presenta un menú de 6 opciones y un mensaje «Ingrese su opción» en cual se coloca el número 5 que corresponde a «Estado de cuenta».</p></li>
+<li><p>En caso de tener notificaciones se le presentara el detalle de quién le ha realizado una transferencia y deberá ingresar el valor de la opción «5» después de la notificación.</p></li>
+</ol>
+<ol class="arabic" start="9">
+<li><p>Se muestra en pantalla:
+«Historial de transacciones:</p>
+<blockquote>
+<div><p>Depósito: 50.0
+Retiro: 25.0
+Transferencia a test_user_9122: 10.0»
+indicando todas las transacciones que se han realizado en la cuenta respecto a : Depositar, Retirar, Transferir</p>
+</div></blockquote>
+</li>
 </ol>
 <p>Resultado esperado:</p>
 <p>Historial de transacciones:</p>
-<p>Depósito: 100.0</p>
-<p>Retiro: 50.0</p>
+<p>Depósito: 50.0</p>
+<p>Retiro: 25.0</p>
+<p>Transferencia a test_user_9122: 10.0</p>
 </dd></dl>
 
 <dl class="py function">
@@ -173,27 +259,40 @@
 <dd><p>Prueba 9: Logueo con credenciales no registradas</p>
 <p>Pasos:</p>
 <ol class="arabic simple">
-<li><p>Seleccionar la opción «1. Ingresar» del menú principal.</p></li>
-<li><p>Ingresar «invalid_user» como ID de cuenta.</p></li>
-<li><p>Ingresar «invalid_password» como contraseña.</p></li>
-<li><p>Confirmar que el inicio de sesión falla con el mensaje «ID de cuenta o contraseña incorrectos.»</p></li>
+<li><p>Levantar el servidor: Se abre la terminal y se ejecuta el comando “python .bank_server.py”.</p></li>
+<li><p>Levantar el cliente: Se abre una segunda terminal y se ejecuta el comando “python .bank_client_antiguo.py”.</p></li>
+</ol>
+<ol class="arabic simple" start="4">
+<li><p>En “Ingrese su opción:” se ingresa el número 1 que corresponde a la opción del menú de “Ingresar”.</p></li>
+<li><p>Se puede ingresa un ID no existente:»invalid_user» o un ID existente:»valid_user».</p></li>
+<li><p>Se ingresa una contraseña cualquiera para el caso de un ID no existente:»password_123» y en el caso de un ID existente se ingresa una contraseña incorrecta «invalid_password» «.</p></li>
+<li><p>Se muestra un mensaje de «ID de cuenta o contraseña incorrectos».</p></li>
+<li><p>Se confirma que el inicio de sesión falla con el mensaje «ID de cuenta o contraseña incorrectos.»</p></li>
 </ol>
 <p>Resultado esperado:</p>
-<p>ID de cuenta o contraseña incorrectos.</p>
+<p>Mensaje que indica «ID de cuenta o contraseña incorrectos».</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="doc_pruebas.test_retiro_exitoso">
 <span class="sig-prename descclassname"><span class="pre">doc_pruebas.</span></span><span class="sig-name descname"><span class="pre">test_retiro_exitoso</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#doc_pruebas.test_retiro_exitoso" title="Link to this definition">¶</a></dt>
 <dd><p>Prueba 5: Retiro exitoso</p>
-<p>Pasos:
-1. Seleccionar la opción «3. Retirar» del menú de usuario.</p>
-<ol class="arabic simple" start="2">
-<li><p>Ingresar «50.0» como cantidad a retirar.</p></li>
-<li><p>Confirmar el retiro exitoso con el mensaje «Retiro de 50.0 de la cuenta test_user_9120. Nuevo saldo es 50.0.»</p></li>
+<p>Pasos:</p>
+<ol class="arabic simple">
+<li><p>Levantar el servidor: Se abre la terminal y se ejecuta el comando “python .bank_server.py”.</p></li>
+<li><p>Levantar el cliente: Se abre una segunda terminal y se ejecuta el comando “python .bank_client_antiguo.py”.</p></li>
+<li><p>Si aún no tiene una cuenta, debe crear una cuenta a través de los pasos para la «Creación de cuenta exitosa».</p></li>
+<li><p>En “Ingrese su opción:” se ingresa el número 1 que corresponde a la opción del menú de “Ingresar”.</p></li>
+<li><p>Se ingresa un ID existente, de una cuenta que ya haya creado previamente.</p></li>
+<li><p>Se ingresa la contraseña correspondiente a su «ID de cuenta».</p></li>
+<li><p>Se confirma el inicio de sesión exitoso con el mensaje «Ingreso exitoso».</p></li>
+<li><p>Se presenta un menú de 6 opciones y un mensaje «Ingrese su opción» en cual se coloca el número 3 que corresponde a «Retirar».</p></li>
+<li><p>En caso de tener notificaciones se le presentara el detalle de quién le ha realizado una transferenciay deberá ingresar el valor de la opción «3» después de la notificación.</p></li>
+<li><p>Se muestra un mensaje «Ingrese la cantidad a retirar» indicando el valor que quiere retirar de su cuenta. Por ejemplo si en la cuenta se tiene $50, se puede retirar $25 así: «Ingrese la cantidad a retirar: 25», el valor del retiro debe ser menor al valor que tiene en la cuenta.</p></li>
+<li><p>Se muestra un mensaje «Retiro de 25.0 de la cuenta test_user_9120. Nuevo saldo es 25.0» indicando el valor que ha retirado de su cuenta y actualizando el saldo que tiene después del retiro.</p></li>
 </ol>
 <p>Resultado esperado:</p>
-<p>Retiro de 50.0 de la cuenta test_user_9120. Nuevo saldo es 50.0.</p>
+<p>Mensaje que indica «Retiro de 25.0 en la cuenta test_user_9120. Nuevo saldo es 25.0.</p>
 </dd></dl>
 
 <dl class="py function">
@@ -202,12 +301,20 @@
 <dd><p>Prueba 11: Retiro de una cuenta sin fondos</p>
 <p>Pasos:</p>
 <ol class="arabic simple">
-<li><p>Seleccionar la opción «3. Retirar» del menú de usuario.</p></li>
-<li><p>Ingresar «750.0» como cantidad a retirar.</p></li>
-<li><p>Confirmar que el retiro falla con el mensaje «Fondos insuficientes.»</p></li>
+<li><p>Levantar el servidor: Se abre la terminal y se ejecuta el comando “python .bank_server.py”.</p></li>
+<li><p>Levantar el cliente: Se abre una segunda terminal y se ejecuta el comando “python .bank_client_antiguo.py”.</p></li>
+<li><p>Si aún no tiene una cuenta, debe crear una cuenta a través de los pasos para la «Creación de cuenta exitosa».</p></li>
+<li><p>En “Ingrese su opción:” se ingresa el número 1 que corresponde a la opción del menú de “Ingresar”.</p></li>
+<li><p>Se ingresa un ID existente, de una cuenta que ya haya creado previamente.</p></li>
+<li><p>Se ingresa la contraseña correspondiente a su «ID de cuenta».</p></li>
+<li><p>Se confirma el inicio de sesión exitoso con el mensaje «Ingreso exitoso».</p></li>
+<li><p>Se presenta un menú de 6 opciones y un mensaje «Ingrese su opción» en cual se coloca el número 3 que corresponde a «Retirar».</p></li>
+<li><p>En caso de tener notificaciones se le presentara el detalle de quién le ha realizado una transferenciay deberá ingresar el valor de la opción «3» después de la notificación.</p></li>
+<li><p>Se muestra un mensaje «Ingrese la cantidad a retirar» indicando el valor que quiere retirar de su cuenta. Por ejemplo si en la cuenta se tiene $50, y coloca para retirar $60 así: «Ingrese la cantidad a retirar: 60», el valor del retiro debe ser mayorr al valor que tiene en la cuenta.</p></li>
+<li><p>Se confirma de que el retiro ha fallado con el mensaje “Fondos insuficientes”.</p></li>
 </ol>
 <p>Resultado esperado:</p>
-<p>Fondos insuficientes.</p>
+<p>Mensaje que indica «Fondos insuficientes».</p>
 </dd></dl>
 
 <dl class="py function">
@@ -216,13 +323,21 @@
 <dd><p>Prueba 12: Transferencia a una cuenta no existente</p>
 <p>Pasos:</p>
 <ol class="arabic simple">
-<li><p>Seleccionar la opción «4. Transferir» del menú de usuario.</p></li>
-<li><p>Ingresar «non_existent_account» como cuenta de destino.</p></li>
-<li><p>Ingresar «25.0» como cantidad a transferir.</p></li>
-<li><p>Confirmar que la transferencia falla con el mensaje «Una o ambas cuentas no existen.»</p></li>
+<li><p>Levantar el servidor: Se abre la terminal y se ejecuta el comando “python .bank_server.py”.</p></li>
+<li><p>Levantar el cliente: Se abre una segunda terminal y se ejecuta el comando “python .bank_client_antiguo.py”.</p></li>
+<li><p>Si aún no tiene una cuenta, debe crear una cuenta a través de los pasos para la «Creación de cuenta exitosa».</p></li>
+<li><p>En “Ingrese su opción:” se ingresa el número 1 que corresponde a la opción del menú de “Ingresar”.</p></li>
+<li><p>Se ingresa un ID existente, de una cuenta que ya haya creado previamente.</p></li>
+<li><p>Se ingresa la contraseña correspondiente a su «ID de cuenta».</p></li>
+<li><p>Se confirma el inicio de sesión exitoso con el mensaje «Ingreso exitoso».</p></li>
+<li><p>Se presenta un menú de 6 opciones y un mensaje «Ingrese su opción» en cual se coloca el número 4 que corresponde a «Transferir».</p></li>
+<li><p>En caso de tener notificaciones se le presentara el detalle de quién le ha realizado una transferenciay deberá ingresar el valor de la opción «4» después de la notificación.</p></li>
+<li><p>Se muestra un mensaje «Ingrese la cuenta destino» , se ingresa el ID del usuario no existente , debe ser un usuario que no exista al que se va a realizar la transferencia. Por ejemplo «Ingrese la cuenta de destino: non_existent_account»</p></li>
+<li><p>Se muestra un mensaje «Ingrese la cantidad a transferir», ingresa un valor cualquiera en este caso. Ingresar «25.0» como cantidad a transferir</p></li>
+<li><p>Se confirma de que la transferencia ha fallado con el mensaje «Una o ambas cuentas no existen»</p></li>
 </ol>
 <p>Resultado esperado:</p>
-<p>Una o ambas cuentas no existen.</p>
+<p>Mensaje que indica «Una o ambas cuentas no existen».</p>
 </dd></dl>
 
 <dl class="py function">
@@ -231,13 +346,21 @@
 <dd><p>Prueba 6: Transferencia exitosa</p>
 <p>Pasos:</p>
 <ol class="arabic simple">
-<li><p>Seleccionar la opción «4. Transferir» del menú de usuario.</p></li>
-<li><p>Ingresar «test_user_9121» como cuenta de destino.</p></li>
-<li><p>Ingresar «25.0» como cantidad a transferir.</p></li>
-<li><p>Confirmar la transferencia exitosa con el mensaje «Transferencia de 25.0 desde la cuenta test_user_9120 a la cuenta test_user_9121. Nuevos saldos: test_user_9120: 75.0, test_user_9121: 75.0.»</p></li>
+<li><p>Levantar el servidor: Se abre la terminal y se ejecuta el comando “python .bank_server.py”.</p></li>
+<li><p>Levantar el cliente: Se abre una segunda terminal y se ejecuta el comando “python .bank_client_antiguo.py”.</p></li>
+<li><p>Si aún no tiene una cuenta, debe crear una cuenta a través de los pasos para la «Creación de cuenta exitosa».</p></li>
+<li><p>En “Ingrese su opción:” se ingresa el número 1 que corresponde a la opción del menú de “Ingresar”.</p></li>
+<li><p>Se ingresa un ID existente, de una cuenta que ya haya creado previamente.</p></li>
+<li><p>Se ingresa la contraseña correspondiente a su «ID de cuenta».</p></li>
+<li><p>Se confirma el inicio de sesión exitoso con el mensaje «Ingreso exitoso».</p></li>
+<li><p>Se presenta un menú de 6 opciones y un mensaje «Ingrese su opción» en cual se coloca el número 4 que corresponde a «Transferir».</p></li>
+<li><p>En caso de tener notificaciones se le presentara el detalle de quién le ha realizado una transferenciay deberá ingresar el valor de la opción «4» después de la notificación.</p></li>
+<li><p>Se muestra un mensaje «Ingrese la cuenta destino» , se ingresa el ID del usuario , debe ser un usuario existente al que se va a realizar la transferencia. Por ejemplo «Ingrese la cuenta de destino: test_user_9122»</p></li>
+<li><p>Se muestra un mensaje «Ingrese la cantidad a transferir», ingresa un valor que puede ser igual o menor al que tiene en la cuenta. Por ejemplo si en la cuenta tiene $25 puede transferir máximo hasta los $25, «Ingrese la cantidad a transferir: 10»</p></li>
+<li><p>Se muestra un mensaje «Transferencia de 10.0 desde la cuenta Berna2002 a la cuenta Omar2004. Nuevos saldos: test_user_9120: 15.0, test_user_9122: 10.0.» se indica la cantidad transferida entre la cuenta que realiza la transacción a quien recibe eldinero y actualiza los saldos de ambas cuentas.</p></li>
 </ol>
 <p>Resultado esperado:
-Transferencia de 25.0 desde la cuenta test_user_9120 a la cuenta test_user_9121. Nuevos saldos: test_user_9120: 75.0, test_user_9121: 75.0.</p>
+Mensaje que indica «Transferencia de 10.0 desde la cuenta test_user_9120 a la cuenta test_user_9122. Nuevos saldos: test_user_9120: 15.0, test_user_9122: 10.0».</p>
 </dd></dl>
 
 </section>
