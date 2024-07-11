@@ -14,6 +14,7 @@
     <script src="_static/translations.js?v=efdbd0b9"></script>
     <link rel="index" title="Índice" href="genindex.html" />
     <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="prev" title="bank_client module" href="bank_client.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -76,6 +77,23 @@ lock (threading.Lock): Lock para control de acceso concurrente.</p>
 <li><p><strong>account_id</strong> (<em>str</em>) – El ID de la cuenta.</p></li>
 <li><p><strong>password</strong> (<em>str</em>) – La contraseña de la cuenta.</p></li>
 </ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mensaje de éxito o error.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bank_server.BankServer.delete_account">
+<span class="sig-name descname"><span class="pre">delete_account</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">account_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bank_server.BankServer.delete_account" title="Link to this definition">¶</a></dt>
+<dd><p>Elimina una cuenta del servidor bancario.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>account_id</strong> (<em>str</em>) – El ID de la cuenta.</p>
 </dd>
 <dt class="field-even">Devuelve<span class="colon">:</span></dt>
 <dd class="field-even"><p>Mensaje de éxito o error.</p>
@@ -255,14 +273,21 @@ lock (threading.Lock): Lock para control de acceso concurrente.</p>
 
 <h3>Navegación</h3>
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">Banco_RPC</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">RPC_Banco</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="bank_client.html">bank_client module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">bank_server module</a></li>
+</ul>
+</li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">RPC_Banco</a><ul>
+      <li>Previous: <a href="bank_client.html" title="capítulo anterior">bank_client module</a></li>
+  </ul></li>
   </ul></li>
 </ul>
 </div>

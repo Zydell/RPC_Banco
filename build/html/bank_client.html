@@ -14,6 +14,8 @@
     <script src="_static/translations.js?v=efdbd0b9"></script>
     <link rel="index" title="Índice" href="genindex.html" />
     <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="bank_server module" href="bank_server.html" />
+    <link rel="prev" title="RPC_Banco" href="modules.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -76,6 +78,23 @@ lock (threading.Lock): Lock para sincronizar las solicitudes RPC.</p>
 <li><p><strong>account_id</strong> (<em>str</em>) – El ID de la cuenta.</p></li>
 <li><p><strong>password</strong> (<em>str</em>) – La contraseña de la cuenta.</p></li>
 </ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mensaje de éxito o error.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bank_client.BankClient.delete_account">
+<span class="sig-name descname"><span class="pre">delete_account</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">account_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bank_client.BankClient.delete_account" title="Link to this definition">¶</a></dt>
+<dd><p>Elimina una cuenta del servidor bancario.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>account_id</strong> (<em>str</em>) – El ID de la cuenta.</p>
 </dd>
 <dt class="field-even">Devuelve<span class="colon">:</span></dt>
 <dd class="field-even"><p>Mensaje de éxito o error.</p>
@@ -224,6 +243,17 @@ lock (threading.Lock): Lock para sincronizar las solicitudes RPC.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="bank_client.automated_test">
+<span class="sig-prename descclassname"><span class="pre">bank_client.</span></span><span class="sig-name descname"><span class="pre">automated_test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bank_client.automated_test" title="Link to this definition">¶</a></dt>
+<dd><p>Simula la interacción automática con el cliente bancario.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>client</strong> (<a class="reference internal" href="#bank_client.BankClient" title="bank_client.BankClient"><em>BankClient</em></a>) – El cliente bancario.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="bank_client.main_menu">
 <span class="sig-prename descclassname"><span class="pre">bank_client.</span></span><span class="sig-name descname"><span class="pre">main_menu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_func=&lt;built-in</span> <span class="pre">function</span> <span class="pre">input&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bank_client.main_menu" title="Link to this definition">¶</a></dt>
 <dd><p>Muestra el menú principal para interactuar con el cliente bancario.</p>
@@ -271,14 +301,22 @@ lock (threading.Lock): Lock para sincronizar las solicitudes RPC.</p>
 
 <h3>Navegación</h3>
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">Banco_RPC</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">RPC_Banco</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">bank_client module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bank_server.html">bank_server module</a></li>
+</ul>
+</li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">RPC_Banco</a><ul>
+      <li>Previous: <a href="modules.html" title="capítulo anterior">RPC_Banco</a></li>
+      <li>Next: <a href="bank_server.html" title="próximo capítulo">bank_server module</a></li>
+  </ul></li>
   </ul></li>
 </ul>
 </div>
