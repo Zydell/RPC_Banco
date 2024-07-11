@@ -255,9 +255,11 @@ def automated_test(client):
         ('2', "\nPrueba 1: Creación de cuenta (test_user_9120)...\n"),  # Crear cuenta
         ('test_user_9120', None),  # Crear cuenta
         ('test_password', None),  # Contraseña
+
         ('1', "\nPrueba 2: Autenticación (test_user_9120)...\n"),  # Ingresar
         ('test_user_9120', None),  # ID de cuenta
         ('test_password', None),  # Contraseña
+        
         ('1', "\nPrueba 3: Consulta de saldo...\n"),  # Consultar saldo
         ('2', "\nPrueba 4: Depósito (100.0)...\n"),  # Depositar
         ('100.0', None),  # Monto a depositar
