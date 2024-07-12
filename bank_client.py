@@ -259,6 +259,16 @@ def automated_test(client):
         ('1', "\nPrueba 2: Autenticación (test_user_9120)...\n"),  # Ingresar
         ('test_user_9120', None),  # ID de cuenta
         ('test_password', None),  # Contraseña
+
+        ('6', "\nPrueba 9: Cierre de sesión...\n"),  # Cerrar Sesion
+
+
+
+
+        """
+            ('1', "\nPrueba 2: Autenticación (test_user_9120)...\n"),  # Ingresar
+        ('test_user_9120', None),  # ID de cuenta
+        ('test_password', None),  # Contraseña
         
         ('1', "\nPrueba 3: Consulta de saldo...\n"),  # Consultar saldo
         ('2', "\nPrueba 4: Depósito (100.0)...\n"),  # Depositar
@@ -305,6 +315,8 @@ def automated_test(client):
         ('-100.0', None),  # Monto negativo
         ('6', "\nPrueba 25: Cierre de sesión final...\n"),  # Cerrar Sesion
         ('3', "\nPruebas completadas exitosamente.\n")  # Salir
+        """
+        
     ]
 
     step_index = 0
@@ -315,10 +327,10 @@ def automated_test(client):
             response, message = steps[step_index]
             if message:
                 print(message)
-                time.sleep(0)  # Simulación de la demora al mostrar el mensaje
+                time.sleep(1)  # Simulación de la demora al mostrar el mensaje
             step_index += 1
             print(f"{prompt} {response}")
-            time.sleep(0)  # Simulación de la demora al ingresar los datos
+            time.sleep(1)  # Simulación de la demora al ingresar los datos
             return response
         return ""
 
